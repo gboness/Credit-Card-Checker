@@ -28,9 +28,13 @@ const validateCred = arr => {
   total = 0;
   newArray = [];
   arr.pop();
+
+  // looping through the array in reverse and updating new array
   for(i = arr.length - 1; i >= 0 ; i--) {
-      newArray.unshift(arr[i]);
+      newArray.push(arr[i]);
     }
+
+    //looping through the new array to find and double number at odd indexes
   for (i = 0; i < newArray.length; i++) {
     if(i % 2 === 1) {
       const doubledNumber = newArray[i] * 2;
@@ -49,23 +53,5 @@ return newArray;
 return total;
 
   }
-
-// for(i = arr.length - 1; i >= 0 ; i--) {
-//       if ((arr.length - 1 - i) % 2 === 1) { // If the index is odd (every other number)
-//         const doubledNumber = arr[i] * 2;
-//         if(doubledNumber >= 9){
-//           doubledNumber - 9;
-//           temp.push(doubledNumber);
-//           total += doubledNumber;
-//         }
- 
-
-//     } else {
-
-//         temp.push(arr[i]);
-//         total += arr[i];
-//     } 
-// }
-
 
 console.log(validateCred(valid1));
