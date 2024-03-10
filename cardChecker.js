@@ -27,6 +27,7 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 const validateCred = arr => {
   total = 0;
   newArray = [];
+  doubledArray = [];
   arr.pop();
 
   // looping through the array in reverse and updating new array
@@ -34,23 +35,28 @@ const validateCred = arr => {
       newArray.push(arr[i]);
     }
 
-    //looping through the new array to find and double number at odd indexes
+
+  //looping through newArray and doubling numbers at odd indexes and adding them to doubledArray;
   for (i = 0; i < newArray.length; i++) {
-    if(i % 2 === 1) {
-      const doubledNumber = newArray[i] * 2;
-      if(doubledNumber > 9) {
-        total += (doubledNumber - 9);
-      }
-      else {
-        total += doubledNumber;
-      }
+    if(i % 2 != 0) {
+      doubledArray.push(newArray[i] * 2);
     }
     else {
-      total += newArray[i];
+      doubledArray.push(newArray[i]);
     }
   }
-return newArray;
-return total;
+
+  //looping throught doubledArray and subtracting 9 from numbers greater than 9
+  for(i = 0; i < doubledArray.length; i++) {
+    if (doubledArray[i] > 9) {
+      doubledArray[i] = doubledArray[i] - 9;
+    }
+  }
+
+
+return doubledArray;
+// return newArray;
+// return total;
 
   }
 
