@@ -28,7 +28,7 @@ const validateCred = arr => {
   total = 0;
   newArray = [];
   doubledArray = [];
-  arr.pop();
+  checker = arr.pop();
 
   // looping through the array in reverse and updating new array
   for(i = arr.length - 1; i >= 0 ; i--) {
@@ -38,7 +38,7 @@ const validateCred = arr => {
 
   //looping through newArray and doubling numbers at odd indexes and adding them to doubledArray;
   for (i = 0; i < newArray.length; i++) {
-    if(i % 2 != 0) {
+    if(i % 2 != 1) {
       doubledArray.push(newArray[i] * 2);
     }
     else {
@@ -52,11 +52,18 @@ const validateCred = arr => {
       doubledArray[i] = doubledArray[i] - 9;
     }
   }
+  for(i = 0; i < doubledArray.length; i++) {
+    total += doubledArray[i];
+  }
 
+  // checking to see if card is valid or invalid
+  if (total += checker % 10 === 0) {
+    return 'This is a valid credit card number!';
 
-return doubledArray;
-// return newArray;
-// return total;
+  }
+  else {
+    return 'This card number is invalid!';
+  }
 
   }
 
