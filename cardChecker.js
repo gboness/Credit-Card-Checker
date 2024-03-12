@@ -73,8 +73,8 @@ const validateCred = arr => {
 
 // new function to loop through nested array of card numbers and return only the invalid ones
 const findInvalidCards = arrCheck => {
-  const invalidCardArray = [];
-  const testArray = [];
+  invalidCardArray = [];
+  testArray = [];
 
 // looping through array for the first time
   for(i = 0; i < arrCheck.length; i++) {
@@ -84,10 +84,11 @@ const findInvalidCards = arrCheck => {
 
   //loop through new array and return each array
   for(j = 0; j < invalidCardArray.length; j++) {
-    return invalidCardArray[j];
+    testArray.push(invalidCardArray[j]);
+    console.log(validateCred(testArray));
   }
   
 }
 
-console.log(findInvalidCards(batch));
+findInvalidCards(batch);
 // console.log(validateCred(valid1));
