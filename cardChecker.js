@@ -75,7 +75,7 @@ const validateCred = arr => {
 const findInvalidCards = arrCheck => {
   invalidCardArray = [];
   testArray = [];
-
+  let results = []
 // looping through array for the first time
   for(i = 0; i < arrCheck.length; i++) {
     //adding each individual arr to a new array
@@ -85,10 +85,10 @@ const findInvalidCards = arrCheck => {
   //loop through new array and return each array
   for(j = 0; j < invalidCardArray.length; j++) {
     testArray.push(invalidCardArray[j]);
-    console.log(validateCred(testArray));
+    results.push(validateCred(testArray));
   }
-  
+ return results; 
 }
 
-findInvalidCards(batch);
+console.log(findInvalidCards(batch));
 // console.log(validateCred(valid1));
