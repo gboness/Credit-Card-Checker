@@ -30,7 +30,7 @@ const validateCred = arr => {
   doubledArray = [];
 
   //removing last number from card number and storing it as a variable
-  checker = arr.pop;
+  checker = arr.pop();
 
   // looping through the array in reverse and updating new array
   for(i = arr.length - 1; i >= 0 ; i--) {
@@ -58,8 +58,11 @@ const validateCred = arr => {
     total += doubledArray[i];
   }
 
+  //Creating new total with checker
+  newTotal = total += checker;
+
   //checking if card number is valid or not 
-  if (total += checker % 10 === 0) {
+  if (newTotal % 10 === 0) {
     //if true card number is valid
     return true;
   }
@@ -69,6 +72,11 @@ const validateCred = arr => {
   }
 
   }
+
+
+
+
+  // this function below doesnt work!
 
 
 // new function to loop through nested array of card numbers and return only the invalid ones
@@ -90,5 +98,4 @@ const findInvalidCards = arrCheck => {
  return results; 
 }
 
-console.log(findInvalidCards(batch));
-// console.log(validateCred(valid1));
+console.log(validateCred(mystery));
