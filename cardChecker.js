@@ -90,5 +90,5 @@ const findInvalidCards = arrCheck => {
  return results; 
 }
 
-console.log(findInvalidCards(batch));
+console.log(findInvalidCards(valid1));
 // console.log(validateCred(valid1));
