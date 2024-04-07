@@ -28,7 +28,7 @@ const validateCred = arr => {
   total = 0;
   newArray = [];
   doubledArray = [];
-
+ 
   //removing last number from card number and storing it as a variable
   checker = arr.pop();
 
@@ -78,6 +78,9 @@ const findInvalidCards = arrCheck => {
   invalidCardArray = [];
   testArray = [];
   results = []
+  falseArrays = [];
+
+
 // looping through array for the first time
   for(i = 0; i < arrCheck.length; i++) {
     //adding each individual arr to a new array
@@ -90,6 +93,9 @@ const findInvalidCards = arrCheck => {
     //pushing each array through the invalidCardArray function to find which cards are invalid
     results.push(validateCred(invalidCardArray[j]));
   }
+
+  // collecting invalid arrays
   return results;
 }
+
 console.log(findInvalidCards(batch));
