@@ -73,6 +73,8 @@ const validateCred = arr => {
 
   }
 
+ 
+
 // new function to loop through nested array of card numbers and return only the invalid ones
 const findInvalidCards = arrCheck => {
   invalidCardArray = [];
@@ -87,15 +89,48 @@ const findInvalidCards = arrCheck => {
     invalidCardArray.push(arrCheck[i]);
   }
 
+
   //loop through new array and return each array
   for(j = 0; j < invalidCardArray.length; j++) {
 
-    //pushing each array through the invalidCardArray function to find which cards are invalid
-    results.push(validateCred(invalidCardArray[j]));
+    //pushing each array through the invalidCardArray function and saving invalid results to falseArrays list
+    if (validateCred(invalidCardArray[j]) === false){
+      falseArrays.push(invalidCardArray[j]);
+    }
   }
 
-  // collecting invalid arrays
-  return results;
+  // displaying falseArrays
+  for (x = 0; x < falseArrays.length; x++) {
+     console.log(falseArrays[x]);
+  }
+
+  return falseArrays;
+}
+
+
+
+// function below this not finished
+
+// function to find companies that issued the invalid cards
+const idInvalidCardCompanies = arr => {
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i][1] === 3) {
+      console.log('Amex');
+    }
+   if (arr[i][1] === 4) {
+      console.log('Visa');
+   }
+   if (arr[i][1] === 5) {
+      console.log('Mastercard');
+   }
+   if (arr[i][1] === 6) {
+      console.log('Discover');
+   }
+}
 }
 
 console.log(findInvalidCards(batch));
+console.log(idInvalidCardCompanies(falseArrays));
+
+
+
