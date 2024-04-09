@@ -23,7 +23,7 @@ const mystery5 = [4, 9, 1, 3, 5, 4, 0, 4, 6, 3, 0, 7, 2, 5, 2, 3];
 const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, invalid3, invalid4, invalid5, mystery1, mystery2, mystery3, mystery4, mystery5];
 
 
-// Add your functions below:
+
 const validateCred = arr => {
   total = 0;
   newArray = [];
@@ -113,20 +113,37 @@ const findInvalidCards = arrCheck => {
 
 // function to find companies that issued the invalid cards
 const idInvalidCardCompanies = arr => {
+  cardCompanies = []
+
+
   for (i = 0; i < arr.length; i++) {
-    if (arr[i][1] === 3) {
-      console.log('Amex');
+    if (arr[i][0] === 3) {
+      if (cardCompanies.includes('Amex') === False){
+        cardCompanies.push('Amex');
+      }
     }
-   if (arr[i][1] === 4) {
-      console.log('Visa');
+   else if (arr[i][0] === 4) {
+    if (cardCompanies.includes('Visa') === False){
+      cardCompanies.push('Visa');
    }
-   if (arr[i][1] === 5) {
-      console.log('Mastercard');
+  }
+   else if (arr[i][0] === 5) {
+    if (cardCompanies.includes('Master Card') === False){
+      cardCompanies.push('Master Card');
    }
-   if (arr[i][1] === 6) {
-      console.log('Discover');
+  }
+   else if (arr[i][0] === 6) {
+    if (cardCompanies.includes('Discover') === False){
+      cardCompanies.push('Discover');
    }
-}
+  }
+   else {
+    console.log('Card company not found');
+   }
+
+
+  }
+  return cardCompanies;
 }
 
 console.log(findInvalidCards(batch));
