@@ -109,31 +109,28 @@ const findInvalidCards = arrCheck => {
 
 
 
-// function below this not finished
-
 // function to find companies that issued the invalid cards
 const idInvalidCardCompanies = arr => {
   cardCompanies = []
 
-
   for (i = 0; i < arr.length; i++) {
     if (arr[i][0] === 3) {
-      if (cardCompanies.includes('Amex') === False){
+      if (cardCompanies.includes('Amex') === false){
         cardCompanies.push('Amex');
       }
     }
    else if (arr[i][0] === 4) {
-    if (cardCompanies.includes('Visa') === False){
+    if (cardCompanies.includes('Visa') === false){
       cardCompanies.push('Visa');
    }
   }
    else if (arr[i][0] === 5) {
-    if (cardCompanies.includes('Master Card') === False){
+    if (cardCompanies.includes('Master Card') === false){
       cardCompanies.push('Master Card');
    }
   }
    else if (arr[i][0] === 6) {
-    if (cardCompanies.includes('Discover') === False){
+    if (cardCompanies.includes('Discover') === false){
       cardCompanies.push('Discover');
    }
   }
